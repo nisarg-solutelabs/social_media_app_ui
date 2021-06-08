@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ui_3/screens/home_screen.dart';
+import 'package:ui_3/screens/login_scree.dart';
+import 'package:ui_3/screens/profile_screen.dart';
 import 'package:ui_3/screens/trending_tab.dart';
 
 class SideMenu extends StatelessWidget {
@@ -24,6 +27,11 @@ class SideMenu extends StatelessWidget {
             ),
           ),
           ListTile(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => HomeScreen(),
+              ));
+            },
             leading: Icon(
               Icons.home_repair_service,
             ),
@@ -38,6 +46,11 @@ class SideMenu extends StatelessWidget {
             title: Text('Map'),
           ),
           ListTile(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => ProfileScreen(),
+              ));
+            },
             leading: Icon(Icons.person),
             title: Text('Your Profile'),
           ),
@@ -51,6 +64,11 @@ class SideMenu extends StatelessWidget {
             height: 100.0,
           ),
           ListTile(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => LoginScreen(),
+              ));
+            },
             leading: Icon(Icons.logout),
             title: Text('Logout'),
           ),
