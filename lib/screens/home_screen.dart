@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ui_3/data/data.dart';
+import 'package:ui_3/screens/latest_tab.dart';
+import 'package:ui_3/screens/side_menu.dart';
+import 'package:ui_3/screens/trending_tab.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -7,6 +9,7 @@ class HomeScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        drawer: SideMenu(),
         appBar: AppBar(
           title: Text(
             'FRENZY',
@@ -46,31 +49,11 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: <Widget>[
-              Text(
-                'Following',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  ClipRRect(
-                    child: Image(
-                      height: 30.0,
-                      width: 30.0,
-                      image: AssetImage('users[0].backgroundImageUrl'),
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
+        body: TabBarView(
+          children: [
+            TrendingTab(),
+            LatestTab(),
+          ],
         ),
       ),
     );
